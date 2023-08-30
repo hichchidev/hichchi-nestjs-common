@@ -1,6 +1,6 @@
 {
   "name": "hichchi-nestjs-common",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "nestjs commons",
   "main": "index.js",
   "types": "index.d.ts",
