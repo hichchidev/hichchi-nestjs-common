@@ -1,12 +1,12 @@
 // noinspection JSUnusedGlobalSymbols
 
-export interface ClassValidatorErrorResponse {
+export interface IClassValidatorErrorResponse {
     statusCode: number;
     message: string[];
     error: string;
 }
 
-export interface EntityErrorResponse {
+export interface IEntityErrorResponse {
     status: number;
     code: string;
     message: string;

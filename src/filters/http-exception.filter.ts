@@ -3,7 +3,7 @@ import { BaseExceptionFilter } from "@nestjs/core";
 import { applyTemplate, toErrorObject } from "../converters";
 import { LoggerService } from "../services";
 import { Request } from "express";
-import { EntityErrorResponse } from "../interfaces";
+import { IEntityErrorResponse } from "../interfaces";
 
 @Catch()
 export class AllExceptionsFilter extends BaseExceptionFilter {
@@ -14,7 +14,7 @@ export class AllExceptionsFilter extends BaseExceptionFilter {
         try {
             const [, , prefix] = request.url.split("/") as [string, string, string];
 
-            let errObj = ex.response as EntityErrorResponse;
+            let errObj = ex.response as IEntityErrorResponse;
             if (ex.response.statusCode && Array.isArray(ex.response.message)) {
                 errObj = toErrorObject(ex.response.message[0]);
             }
@@ -22,7 +22,7 @@ export class AllExceptionsFilter extends BaseExceptionFilter {
                 status: errObj.status,
                 code: applyTemplate(errObj.code, prefix),
                 message: applyTemplate(errObj.message, prefix),
-            } as EntityErrorResponse;
+            } as IEntityErrorResponse;
         } catch (err: any) {
             LoggerService.error(ex);
             try {

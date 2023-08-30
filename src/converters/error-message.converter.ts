@@ -1,15 +1,15 @@
 import { toJSON, toString } from "./json.converter";
-import { EntityErrorResponse } from "../interfaces";
+import { IEntityErrorResponse } from "../interfaces";
 import { toFirstCase, toSentenceCase, toSnakeCase } from "hichchi-utils";
 
-export const toErrString = (errObj: EntityErrorResponse): { message: string } => {
+export const toErrString = (errObj: IEntityErrorResponse): { message: string } => {
     return {
         message: toString(errObj),
     };
 };
 
-export const toErrorObject = (str: string): EntityErrorResponse => {
-    return toJSON(str) as EntityErrorResponse;
+export const toErrorObject = (str: string): IEntityErrorResponse => {
+    return toJSON(str) as IEntityErrorResponse;
 };
 
 export const applyTemplate = (str: string, prefix: string): string => {
