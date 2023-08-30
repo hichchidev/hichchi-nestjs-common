@@ -1,14 +1,13 @@
+.idea
 .changeset/
 .github/
-node_modules/
 dist/
+node_modules/
 src/
 .eslintignore
 .eslintrc.js
 .gitignore
 .npmignore
 .prettierrc
-package.json
-pnpm-lock.yaml
-README.md
+*.spec.ts
 tsconfig.json
