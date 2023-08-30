@@ -1,5 +1,11 @@
 # hichchi-nestjs-common
 
+## 0.0.5
+
+### Patch Changes
+
+- 4bde2a9: Disable cache
+
 ## 0.0.4
 
 ### Patch Changes
