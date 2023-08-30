@@ -1,5 +1,11 @@
 # hichchi-nestjs-common
 
+## 0.0.4
+
+### Patch Changes
+
+- 2100076: Fix interfaces
+
 ## 0.0.3
 
 ### Patch Changes
