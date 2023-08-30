@@ -1,0 +1,1 @@
+{"version":3,"file":"multer-file.d.ts","sourceRoot":"","sources":["../src/interfaces/multer-file.ts"],"names":[],"mappings":";AAEA,MAAM,WAAW,UAAU;IACvB,SAAS,EAAE,MAAM,CAAC;IAClB,YAAY,EAAE,MAAM,CAAC;IACrB,QAAQ,EAAE,MAAM,CAAC;IACjB,QAAQ,EAAE,MAAM,CAAC;IACjB,MAAM,EAAE,MAAM,CAAC;IACf,IAAI,EAAE,MAAM,CAAC;CAChB"}
