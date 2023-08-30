@@ -9,7 +9,8 @@
     "build": "tsc",
     "build:dev": "rimraf dist && tsc --outDir ./dist",
     "prepublish": "pnpm run build",
-    "release": "pnpm run build && changeset publish"
+    "release": "pnpm run build && changeset publish",
+    "lint": "eslint"
   },
   "repository": {
     "type": "git",
