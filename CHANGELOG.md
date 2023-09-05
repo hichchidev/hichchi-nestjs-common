@@ -1,5 +1,11 @@
 # hichchi-nestjs-common
 
+## 0.0.6
+
+### Patch Changes
+
+- acddf91: Fix git issue
+
 ## 0.0.5
 
 ### Patch Changes
