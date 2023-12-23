@@ -1,3 +1,3 @@
 // noinspection JSUnusedGlobalSymbols
 
-export const TEST = "test";
+export const CACHE_OPTIONS = "cache_options";
