@@ -20,7 +20,7 @@ export class RedisCacheService {
     userPrefix = (userId: number): string => `${this.prefix()}-user-${userId}`;
 
     async get<T = unknown>(key: string): Promise<T | undefined> {
-        return this.cache.get<T>(`${this.cacheOptions.prefix}-${key}`);
+        return this.cache.get<T>(`${this.prefix()}-${key}`);
     }
 
     async set<T = unknown>(key: string, value: T): Promise<void> {
