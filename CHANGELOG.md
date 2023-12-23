@@ -1,5 +1,11 @@
 # hichchi-nestjs-common
 
+## 0.0.8
+
+### Patch Changes
+
+- 47216e8: Fix redis prefix support
+
 ## 0.0.7
 
 ### Patch Changes
