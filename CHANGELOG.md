@@ -1,5 +1,11 @@
 # hichchi-nestjs-common
 
+## 0.0.9
+
+### Patch Changes
+
+- d04be56: Fix exception filter naming
+
 ## 0.0.8
 
 ### Patch Changes
