@@ -12,7 +12,7 @@ export class AllExceptionsFilter extends BaseExceptionFilter {
         const ex: any = exception;
         const request = host.switchToHttp().getRequest<Request>();
         try {
-            const [, , prefix] = request.url.split("/") as [string, string, string];
+            const [, prefix] = request.url.replace(/\/?v\d+/, "").split("/") as [string, string, string];
 
             let errObj = ex.response as IEntityErrorResponse;
             if (ex.response.statusCode && Array.isArray(ex.response.message)) {
