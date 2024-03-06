@@ -1,5 +1,11 @@
 # hichchi-nestjs-common
 
+## 0.1.0
+
+### Minor Changes
+
+- be421e9: Updated cache service and user interfaces
+
 ## 0.0.9
 
 ### Patch Changes
