@@ -1,8 +1,8 @@
 export interface IUserEntity {
     id: any;
-    username: string;
+    username?: string;
+    email?: string;
     password: string;
     salt: string;
-    email?: string;
     role?: string;
 }
