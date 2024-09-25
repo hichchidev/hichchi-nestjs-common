@@ -1,3 +1,5 @@
+// noinspection JSUnusedGlobalSymbols
+
 export const DateTransformer = ({ value }): Date | undefined => {
     if (typeof value.getMonth === "function") {
         return value;

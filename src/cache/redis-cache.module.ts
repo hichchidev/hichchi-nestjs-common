@@ -3,7 +3,7 @@ import { CacheModule } from "@nestjs/cache-manager";
 import { RedisCacheService } from "./services/redis-cache.service";
 import { CacheModuleOptions } from "@nestjs/cache-manager/dist/interfaces/cache-module.interface";
 import { CACHE_OPTIONS } from "../tokens";
-import { ICacheOptions } from "../interfaces/cache-options.interface";
+import { ICacheOptions } from "../interfaces";
 
 // noinspection JSUnusedGlobalSymbols
 @Global()

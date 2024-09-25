@@ -3,7 +3,7 @@
 import { Inject, Injectable } from "@nestjs/common";
 import { CACHE_MANAGER, CacheStore } from "@nestjs/cache-manager";
 import { CACHE_OPTIONS } from "../../tokens";
-import { ICacheOptions } from "../../interfaces/cache-options.interface";
+import { ICacheOptions } from "../../interfaces";
 
 const PREFIX = "hc-cache";
 
@@ -19,18 +19,28 @@ export class RedisCacheService {
     }
 
     async get<T = unknown>(key: string): Promise<T | undefined> {
-        // eslint-disable-next-line no-console
-        console.log("hichchi-nestjs-common => cacheOptions: ", this.cacheOptions);
-        return this.cache.get<T>(`${this.prefix}-${key}`);
+        try {
+            return await this.cache.get<T>(`${this.prefix}-${key}`);
+        } catch {
+            return undefined;
+        }
     }
 
-    async set<T = unknown>(key: string, value: T): Promise<void> {
-        // eslint-disable-next-line no-console
-        console.log("hichchi-nestjs-common => cacheOptions: ", this.cacheOptions);
-        return this.cache.set(`${this.prefix}-${key}`, value);
+    async set<T = unknown>(key: string, value: T): Promise<boolean> {
+        try {
+            await this.cache.set(`${this.prefix}-${key}`, value);
+            return true;
+        } catch {
+            return false;
+        }
     }
 
-    async delete(key: string): Promise<void> {
-        return this.cache.del(`${this.prefix}-${key}`);
+    async delete(key: string): Promise<boolean> {
+        try {
+            await this.cache.del(`${this.prefix}-${key}`);
+            return true;
+        } catch {
+            return false;
+        }
     }
 }
