@@ -1,5 +1,11 @@
 # hichchi-nestjs-common
 
+## 1.0.0
+
+### Major Changes
+
+- 999d336: Various feature updates
+
 ## 0.1.0
 
 ### Minor Changes
