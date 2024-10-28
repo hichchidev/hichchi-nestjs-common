@@ -2,7 +2,7 @@
 
 import { ClassConstructor, plainToInstance } from "class-transformer";
 import { isUUID, validate } from "class-validator";
-import { BadRequestException } from "@nestjs/common";
+import { BadRequestException, ValidationError } from "@nestjs/common";
 import { Errors } from "../responses";
 import { IEntityErrorResponse } from "../interfaces";
 import { applyTemplate, toErrorObject } from "../converters";
@@ -14,12 +14,24 @@ export const throwDtoValidationError = (errors: string | string[]): void => {
     throw new BadRequestException(errorObject, "Bad Request Exception");
 };
 
+export const addErrors = (validationErrors: ValidationError[], errs: string[] = []): string[] => {
+    const errors: string[] = errs;
+    if (validationErrors.length) {
+        validationErrors.forEach((error) => {
+            errors.push(...Object.values(error.constraints ?? []));
+            if (error.children?.length) {
+                errors.push(...addErrors(error.children, errors));
+            }
+        });
+    }
+    return errors;
+};
+
 export const validateDto = async <T extends object, V>(dto: ClassConstructor<T>, obj: V): Promise<T> => {
     const objInstance = plainToInstance(dto, obj);
     const validationErrors = await validate(objInstance);
-    if (validationErrors.length) {
-        const errors: string[] = [];
-        validationErrors.forEach((error) => errors.push(...Object.values(error.constraints ?? [])));
+    const errors = addErrors(validationErrors);
+    if (errors.length) {
         throwDtoValidationError(errors);
     }
     return objInstance;

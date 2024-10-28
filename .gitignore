@@ -5,6 +5,7 @@
 # Build Output
 /cache
 /converters
+/decorators
 /dtos
 /filters
 /interfaces

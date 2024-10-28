@@ -11,10 +11,10 @@
     "prepublish": "npm run build",
     "release": "npm run build && changeset publish",
     "lint": "eslint",
-    "copy:dist": "cpx dist/** \"C:\\Workspace\\Personal\\Web\\retail-point\\retail-point-api\\node_modules\\hichchi-nestjs-common\"",
-    "copy:package.json": "cpx package.json \"C:\\Workspace\\Personal\\Web\\retail-point\\retail-point-api\\node_modules\\hichchi-nestjs-common\"",
-    "copy:node_modules": "cpx node_modules \"C:\\Workspace\\Personal\\Web\\retail-point\\retail-point-api\\node_modules\\hichchi-nestjs-common\"",
-    "clean:common-module": "rimraf \"C:\\Workspace\\Personal\\Web\\retail-point\\retail-point-api\\node_modules\\hichchi-nestjs-common\"",
+    "copy:dist": "cpx dist/** C:\\Workspace\\TeamDevFusion\\TieTheKnots\\TieTheKnot-API\\node_modules\\hichchi-nestjs-common",
+    "copy:package.json": "cpx package.json C:\\Workspace\\TeamDevFusion\\TieTheKnots\\TieTheKnot-API\\node_modules\\hichchi-nestjs-common",
+    "copy:node_modules": "cpx node_modules C:\\Workspace\\TeamDevFusion\\TieTheKnots\\TieTheKnot-API\\node_modules\\hichchi-nestjs-common",
+    "clean:common-module": "rimraf C:\\Workspace\\TeamDevFusion\\TieTheKnots\\TieTheKnot-API\\node_modules\\hichchi-nestjs-common",
     "build-and-copy": "npm-run-all build:dev clean:common-module copy:dist copy:package.json copy:node_modules"
   },
   "repository": {
