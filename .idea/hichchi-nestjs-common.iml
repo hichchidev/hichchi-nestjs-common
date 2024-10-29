@@ -6,6 +6,19 @@
       <excludeFolder url="file://$MODULE_DIR$/temp" />
       <excludeFolder url="file://$MODULE_DIR$/tmp" />
       <excludeFolder url="file://$MODULE_DIR$/dist" />
+      <excludeFolder url="file://$MODULE_DIR$/cache" />
+      <excludeFolder url="file://$MODULE_DIR$/converters" />
+      <excludeFolder url="file://$MODULE_DIR$/decorators" />
+      <excludeFolder url="file://$MODULE_DIR$/dtos" />
+      <excludeFolder url="file://$MODULE_DIR$/filters" />
+      <excludeFolder url="file://$MODULE_DIR$/interceptors" />
+      <excludeFolder url="file://$MODULE_DIR$/interfaces" />
+      <excludeFolder url="file://$MODULE_DIR$/middlewares" />
+      <excludeFolder url="file://$MODULE_DIR$/responses" />
+      <excludeFolder url="file://$MODULE_DIR$/services" />
+      <excludeFolder url="file://$MODULE_DIR$/transformers" />
+      <excludeFolder url="file://$MODULE_DIR$/types" />
+      <excludeFolder url="file://$MODULE_DIR$/utils" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />

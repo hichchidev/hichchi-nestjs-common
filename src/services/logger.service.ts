@@ -5,7 +5,7 @@ import { readFileSync, writeFileSync } from "fs";
 import { LoggerService as NestLogger } from "@nestjs/common";
 import { ILogObject, Logger } from "tslog";
 
-export const LOG_FILE_NAME = "errors";
+export const LOG_FILE_NAME = "errors.json";
 
 // import { WebhookService } from "../modules";
 
@@ -66,11 +66,11 @@ export class LoggerService implements NestLogger {
             const filename = LOG_FILE_NAME;
 
             try {
-                logFileArray = JSON.parse(readFileSync(`${filename}.json`).toString());
+                logFileArray = JSON.parse(readFileSync(`${filename}`).toString());
             } catch (err: any) {
                 try {
                     logFileArray = [];
-                    writeFileSync(`${filename}.json`, JSON.stringify(logFileArray, null, 2));
+                    writeFileSync(`${filename}`, JSON.stringify(logFileArray, null, 2));
                 } catch (err) {}
             }
 
@@ -80,8 +80,7 @@ export class LoggerService implements NestLogger {
                 logFileArray.splice(0, logFileArray.length - 100);
             }
             try {
-                logFileArray = [];
-                writeFileSync(`${filename}.json`, JSON.stringify(logFileArray, null, 2));
+                writeFileSync(`${filename}`, JSON.stringify(logFileArray, null, 2));
             } catch (err) {}
         }
     }
@@ -142,6 +141,14 @@ export class LoggerService implements NestLogger {
 
     static fatal(message: any, ...optionalParams: any[]): void {
         this.logger.fatal(message, ...optionalParams);
+    }
+
+    verbose?(message: any, ...optionalParams: any[]): void {
+        this.debug(message, ...optionalParams);
+    }
+
+    static verbose(message: any, ...optionalParams: any[]): void {
+        this.debug(message, ...optionalParams);
     }
 }
 

@@ -71,7 +71,7 @@ export const httpExceptionFilter = (exception: any, request?: Request, logUnknow
             message: applyTemplate(errObj.message, prefix),
         } as IEntityErrorResponse;
     } catch (err: any) {
-        if (logUnknown) LoggerService.error(ex);
+        if (logUnknown) LoggerService.error(ex, "HttpException: Unknown Error");
         try {
             const message = ex.response.message ? ex.response.message : ex.message ? ex.message : ex.response;
             ex.response = {

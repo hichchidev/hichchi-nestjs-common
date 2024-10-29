@@ -6,6 +6,7 @@
 /cache
 /converters
 /decorators
+/interceptors
 /dtos
 /filters
 /interfaces
@@ -13,6 +14,7 @@
 /responses
 /services
 /transformers
+/types
 /utils
 /index.d.ts
 /index.d.ts.map
