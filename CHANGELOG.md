@@ -1,5 +1,12 @@
 # hichchi-nestjs-common
 
+## 1.1.1
+
+### Patch Changes
+
+- 3f30519: - Added missing verbose log type to logger service
+  - Fixed error file logging
+
 ## 1.1.0
 
 ### Minor Changes
