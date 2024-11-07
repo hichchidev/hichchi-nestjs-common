@@ -3,6 +3,7 @@
 /decorators
 /dist
 /dtos
+/enums
 /exceptions
 /filters
 /interceptors

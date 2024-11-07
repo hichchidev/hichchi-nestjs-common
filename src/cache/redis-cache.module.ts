@@ -20,7 +20,7 @@ export class RedisCacheModule {
                     isGlobal: true,
                     useFactory: async (): Promise<CacheModuleOptions> => ({
                         ...options,
-                        ttl: options.ttl || 10,
+                        ttl: options.ttl,
                         port: options.port || 6379,
                     }),
                 }),

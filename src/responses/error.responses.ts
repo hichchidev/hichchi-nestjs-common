@@ -54,6 +54,11 @@ const Errors = {
         code: "#{upperSnakeCase}_500",
         message: "Unspecific error!",
     },
+    E_404_NOT_IMPLEMENTED: {
+        status: 404,
+        code: "#{upperSnakeCase}_404_NOT_IMPLEMENTED",
+        message: "API Not implemented!",
+    },
     ERROR: {
         status: 500,
         code: "ERROR_500",

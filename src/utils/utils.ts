@@ -111,27 +111,34 @@ export function httpExceptionFilter(exception: any, request?: Request, logUnknow
             ? (request.url.replace(/\/?v\d+/, "").split("/") as [string, string, string])
             : [undefined, "ERROR", undefined];
 
-        let errObj = ex.response as IEntityErrorResponse;
-        if (ex.response.statusCode && Array.isArray(ex.response.message)) {
-            errObj = toErrorObject(ex.response.message[0]);
+        let errObj = { ...(ex.response || {}) } as Partial<IEntityErrorResponse>;
+        if (ex.response && ex.response.statusCode && Array.isArray(ex.response.message)) {
+            errObj = toErrorObject(ex.response.message[0]) || {};
         }
         ex.response = {
-            status: errObj.status,
-            code: applyTemplate(errObj.code, prefix),
-            message: applyTemplate(errObj.message, prefix),
+            status: errObj.status || Errors.ERROR.status,
+            code: errObj.code ? applyTemplate(errObj.code, prefix) : Errors.ERROR.code,
+            message: errObj.message ? applyTemplate(errObj.message, prefix) : Errors.ERROR.message,
             description: errObj.description,
         } as IEntityErrorResponse;
     } catch (err: any) {
         if (logUnknown) LoggerService.error(ex, "HttpException: Unknown Error");
         try {
-            const message = ex.response.message ? ex.response.message : ex.message ? ex.message : ex.response;
+            const message = ex.response?.message || ex.message || ex.response;
             ex.response = {
-                status: ex.status,
-                code: "ERROR",
-                message: Array.isArray(message) ? message[0] : message,
+                status: ex.status || Errors.ERROR.status,
+                code: Errors.ERROR.code,
+                message: (Array.isArray(message) ? message[0] : message) || Errors.ERROR.message,
             };
-        } catch (err: any) {}
+        } catch (err: any) {
+            ex.response = {
+                status: Errors.ERROR.status,
+                code: Errors.ERROR.code,
+                message: Errors.ERROR.message,
+            };
+        }
     }
+    // console.log(ex);
     return ex;
 }
 

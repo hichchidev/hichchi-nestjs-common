@@ -19,6 +19,8 @@
       <excludeFolder url="file://$MODULE_DIR$/transformers" />
       <excludeFolder url="file://$MODULE_DIR$/types" />
       <excludeFolder url="file://$MODULE_DIR$/utils" />
+      <excludeFolder url="file://$MODULE_DIR$/enums" />
+      <excludeFolder url="file://$MODULE_DIR$/exceptions" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />

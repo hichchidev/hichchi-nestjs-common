@@ -37,11 +37,12 @@ export class RedisCacheService {
      * @template T Type of the Cache value
      * @param {string} key Key of the Cache value
      * @param {T} value Value to be set in Cache
+     * @param {number} ttl Time to live in seconds
      * @return {Promise<boolean>} Status of the operation
      */
-    async set<T = unknown>(key: string, value: T): Promise<boolean> {
+    async set<T = unknown>(key: string, value: T, ttl?: number): Promise<boolean> {
         try {
-            await this.cache.set(`${this.prefix}-${key}`, value);
+            await this.cache.set(`${this.prefix}-${key}`, value, { ttl });
             return true;
         } catch {
             return false;

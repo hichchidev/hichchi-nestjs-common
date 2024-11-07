@@ -4,6 +4,8 @@
 
 # Build Output
 /cache
+/enums
+/exceptions
 /converters
 /decorators
 /interceptors
