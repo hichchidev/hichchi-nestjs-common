@@ -1,5 +1,11 @@
 # hichchi-nestjs-common
 
+## 2.1.1
+
+### Patch Changes
+
+- f7240fa: - Added emailVerified field to IUserEntity
+
 ## 2.1.0
 
 ### Minor Changes
