@@ -1,5 +1,15 @@
 # hichchi-nestjs-common
 
+## 2.0.0
+
+### Major Changes
+
+- 15858c9: - Removed dateTimeHtml function
+  - Refactored all arrow function exports to named function exports
+  - Added inline documentations (JSDoc)
+  - Improved some functions
+  - Added validation for redis configurations
+
 ## 1.1.1
 
 ### Patch Changes
