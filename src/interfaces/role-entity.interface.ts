@@ -1,5 +1,5 @@
 export interface IRoleEntity {
-    id: any;
+    id: string | number;
     name: string;
     permissions: string[];
     priority?: number;

@@ -1,12 +1,46 @@
+// noinspection JSUnusedGlobalSymbols
+
 import { UseInterceptors } from "@nestjs/common";
 import { TransformInterceptor } from "../interceptors";
-import { IViewDto } from "../interfaces"; // Update this path as needed
+import { IViewDto } from "../interfaces";
 
-export const UseTransformInterceptor = (
-    dto: IViewDto,
-): ((target: any, key: string, descriptor: PropertyDescriptor) => TypedPropertyDescriptor<any> | void) => {
-    return (target: any, key: string, descriptor: PropertyDescriptor): TypedPropertyDescriptor<any> | void => {
+/**
+ * Method decorator that wraps the NestJS `UseInterceptors` decorator and applies the `TransformInterceptor` to the specified DTO.
+ *
+ * @example
+ * ```typescript
+ * @Controller("user")
+ * export class UserController {
+ *     @Get()
+ *     @UseTransformInterceptor(new ViewUserDto())
+ *     async getUsers(): Promise<User[]> {
+ *         // Implementation
+ *     }
+ * }
+ *
+ * // Use above instead of using the following
+ *
+ * @Controller("user")
+ * export class UserController {
+ *     @Get()
+ *     @UseInterceptors(new TransformInterceptor(new ViewUserDto()))
+ *     async getUsers(): Promise<User[]> {
+ *         // Implementation
+ *     }
+ * }
+ *
+ * ```
+ *
+ * @param {IViewDto} dto The View DTO to transform the response to
+ * @returns {MethodDecorator} The method decorator
+ */
+export function UseTransformInterceptor(dto: IViewDto): MethodDecorator {
+    return (
+        target: any,
+        propertyKey: string | symbol,
+        descriptor: PropertyDescriptor,
+    ): TypedPropertyDescriptor<any> | void => {
         const interceptor = new TransformInterceptor(dto);
-        return UseInterceptors(interceptor)(target, key, descriptor);
+        return UseInterceptors(interceptor)(target, propertyKey, descriptor);
     };
-};
+}

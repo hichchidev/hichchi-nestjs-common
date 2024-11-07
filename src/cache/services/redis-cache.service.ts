@@ -18,6 +18,12 @@ export class RedisCacheService {
         this.prefix = this.cacheOptions.prefix ? "" : PREFIX;
     }
 
+    /**
+     * Get Value from Cache
+     * @template T Type of the Cache value
+     * @param {string} key Key of the Cache value
+     * @return {Promise<T | undefined>} Value from Cache
+     */
     async get<T = unknown>(key: string): Promise<T | undefined> {
         try {
             return await this.cache.get<T>(`${this.prefix}-${key}`);
@@ -26,6 +32,13 @@ export class RedisCacheService {
         }
     }
 
+    /**
+     * Set Value in Cache
+     * @template T Type of the Cache value
+     * @param {string} key Key of the Cache value
+     * @param {T} value Value to be set in Cache
+     * @return {Promise<boolean>} Status of the operation
+     */
     async set<T = unknown>(key: string, value: T): Promise<boolean> {
         try {
             await this.cache.set(`${this.prefix}-${key}`, value);
@@ -35,6 +48,11 @@ export class RedisCacheService {
         }
     }
 
+    /**
+     * Delete Value from Cache
+     * @param {string} key Key of the Cache value
+     * @return {Promise<boolean>} Status of the operation
+     */
     async delete(key: string): Promise<boolean> {
         try {
             await this.cache.del(`${this.prefix}-${key}`);

@@ -1,6 +1,6 @@
 // noinspection JSUnusedGlobalSymbols
 
-export type PartialWithId<T> = Partial<T> & { id: string };
+export type PartialWithId<T> = Partial<T> & { id: string | number };
 
 export type DeepPartial<T> =
     | T
@@ -27,7 +27,8 @@ export type QuerySafeDeepPartial<T> =
         ? never
         : T extends object
           ? {
-                [P in keyof T]?: T[P] extends Array<infer U>
+                // eslint-disable-next-line @typescript-eslint/no-unused-vars
+                [P in keyof T]?: T[P] extends Array<infer _U>
                     ? never
                     : T[P] extends Date
                       ? never

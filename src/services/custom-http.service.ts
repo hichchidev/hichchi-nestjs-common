@@ -16,6 +16,14 @@ import { take } from "rxjs";
 export class CustomHttpService {
     constructor(private readonly httpService: HttpService) {}
 
+    /**
+     * HTTP GET request
+     *
+     * @template T Response data type
+     * @param {string} url URL
+     * @param {AxiosRequestConfig} config Axios request config
+     * @returns {Promise<T>} Response data
+     */
     async get<T>(url: string, config?: AxiosRequestConfig): Promise<T> {
         try {
             const res = this.httpService.get<T>(url, config).pipe(take(1));
@@ -34,6 +42,15 @@ export class CustomHttpService {
         }
     }
 
+    /**
+     * HTTP POST request
+     *
+     * @template T Response data type
+     * @param {string} url URL
+     * @param {*} data Request data
+     * @param {AxiosRequestConfig} config Axios request config
+     * @returns {Promise<T>} Response data
+     */
     async post<T>(url: string, data?: any, config?: AxiosRequestConfig): Promise<T> {
         try {
             const res = this.httpService.post<T>(url, data, config).pipe(take(1));
@@ -52,6 +69,15 @@ export class CustomHttpService {
         }
     }
 
+    /**
+     * HTTP PUT request
+     *
+     * @template T Response data type
+     * @param {string} url URL
+     * @param {*} data Request data
+     * @param {AxiosRequestConfig} config Axios request config
+     * @returns {Promise<T>} Response data
+     */
     async put<T>(url: string, data?: any, config?: AxiosRequestConfig): Promise<T> {
         try {
             const res = this.httpService.put<T>(url, data, config).pipe(take(1));
@@ -70,6 +96,15 @@ export class CustomHttpService {
         }
     }
 
+    /**
+     * HTTP PATCH request
+     *
+     * @template T Response data type
+     * @param {string} url URL
+     * @param {*} data Request data
+     * @param {AxiosRequestConfig} config Axios request config
+     * @returns {Promise<T>} Response data
+     */
     async patch<T>(url: string, data?: any, config?: AxiosRequestConfig): Promise<T> {
         try {
             const res = this.httpService.patch<T>(url, data, config).pipe(take(1));
@@ -88,6 +123,14 @@ export class CustomHttpService {
         }
     }
 
+    /**
+     * HTTP DELETE request
+     *
+     * @template T Response data type
+     * @param {string} url URL
+     * @param {AxiosRequestConfig} config Axios request config
+     * @returns {Promise<T>} Response data
+     */
     async delete<T>(url: string, config?: AxiosRequestConfig): Promise<T> {
         try {
             const res = this.httpService.delete<T>(url, config).pipe(take(1));
@@ -106,7 +149,14 @@ export class CustomHttpService {
         }
     }
 
-    throwException(error: AxiosError): void {
+    /**
+     * Throw exceptions
+     *
+     * @private
+     * @param {AxiosError} error Axios error
+     * @returns {void}
+     */
+    private throwException(error: AxiosError): void {
         switch (error.response?.status as HttpStatus) {
             case HttpStatus.BAD_REQUEST:
                 throw new BadRequestException(error.response.data);

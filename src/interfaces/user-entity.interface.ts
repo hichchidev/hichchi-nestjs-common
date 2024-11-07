@@ -3,7 +3,7 @@
 import { IRoleEntity } from "./role-entity.interface";
 
 export interface IUserEntity {
-    id: any;
+    id: string | number;
     firstName?: string;
     lastName?: string;
     fullName?: string;
