@@ -1,5 +1,13 @@
 # hichchi-nestjs-common
 
+## 2.1.0
+
+### Minor Changes
+
+- 9c001fe: - Updated error responses
+  - Updated error filter util
+  - Add support for ttl in redis cache service
+
 ## 2.0.0
 
 ### Major Changes
