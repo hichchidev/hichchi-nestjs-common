@@ -4,13 +4,15 @@ import { IRoleEntity } from "./role-entity.interface";
 
 export interface IUserEntity {
     id: string | number;
-    firstName?: string;
-    lastName?: string;
-    fullName?: string;
+    firstName: string;
+    lastName: string;
+    fullName: string;
     username?: string;
     email?: string;
-    password: string;
+    password?: string;
     emailVerified?: boolean;
-    salt: string;
+    avatar?: string;
+    profileData?: object;
+    salt?: string;
     role?: IRoleEntity | string;
 }
