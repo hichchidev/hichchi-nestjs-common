@@ -1,5 +1,11 @@
 # hichchi-nestjs-common
 
+## 2.2.0
+
+### Minor Changes
+
+- 51ca60b: - Updated IUserEntity interface
+
 ## 2.1.1
 
 ### Patch Changes
